@@ -9,8 +9,8 @@ export const create = async(req, res) => {
     try{
     const { name,
             description,
-            expirationdate,
-            isnew,
+            expirationDate,
+            isNew,
             stock
              } = req.body;
 
@@ -18,8 +18,8 @@ export const create = async(req, res) => {
         data:{
             name,     
             description,    
-            expirationdate: new Date(expirationdate),
-            isnew,     
+            expirationDate: new Date(expirationDate),
+            isNew,     
             stock,   
  
         }
@@ -77,8 +77,8 @@ export const update = async(req, res) =>{
         const { id } = req.params
         const { name,
             description,
-            expirationdate,
-            isnew,
+            expirationDate,
+            isNew,
             stock
              } = req.body;
         const updateProduct = await prisma.product.update({
@@ -88,8 +88,8 @@ export const update = async(req, res) =>{
             data: {
                 name: name, 
                 description: description,
-                expirationdate: new Date(expirationdate),
-                isnew: isnew,
+                expirationDate: new Date(expirationDate),
+                isNew: isNew,
                 stock: stock 
             },
         })
