@@ -9,20 +9,20 @@ export const create = async(req, res) => {
     try{
     const { name,
             description,
-            expirationDate,
-            isNew,
+            expirationdate,
+            isnew,
             stock
              } = req.body;
         // Validate user input
-    if (!(name && description && expirationDate && isNew && stock)) {
+    if (!(name && description && expirationdate && isnew && stock)) {
     return res.status(400).send("All input is required");
     }
     const createProduct = await prisma.product.create({
         data:{
             name,     
             description,    
-            expirationDate: new Date(expirationDate),
-            isNew,     
+            expirationdate: new Date(expirationdate),
+            isnew,     
             stock,   
  
         }
@@ -80,8 +80,8 @@ export const update = async(req, res) =>{
         const { id } = req.params
         const { name,
             description,
-            expirationDate,
-            isNew,
+            expirationdate,
+            isnew,
             stock
              } = req.body;
         const updateProduct = await prisma.product.update({
@@ -91,8 +91,8 @@ export const update = async(req, res) =>{
             data: {
                 name: name, 
                 description: description,
-                expirationDate: new Date(expirationDate),
-                isNew: isNew,
+                expirationdate: new Date(expirationdate),
+                isnew: isnew,
                 stock: stock 
             },
         })

@@ -14,8 +14,8 @@ model Product {
   id              Int      @id @default(autoincrement())
   name            String?
   description     String?
-  expirationDate  DateTime?
-  isNew           Boolean?
+  expirationdate  DateTime?
+  isnew           Boolean?
   stock           Int
 
   @@map("products")
